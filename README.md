@@ -12,11 +12,12 @@ Repo Structure
 
   ```
   lect%02d-ex%02d-%s
+  ```
 
   where the replacements are:
-  - Lecture number (%02d)
-  - Exercise number within assignment (%02d)
-  - Short title of exercise (%s)
+  * Lecture number (`%02d`)
+  * Exercise number within assignment (`%02d`)
+  *  Short title of exercise (`%s`)
   ```
 
 License
