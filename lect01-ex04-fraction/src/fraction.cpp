@@ -87,8 +87,6 @@ int fraction::bcd(int a, int b) {
 }
 
 void fraction::reduce() {
-	 bool neg = (counter < 0) ^ (denominator < 0);
-
 	 // bcd only makes sense for positive numbers
 	 int i = counter;
 	 if (i < 0) {

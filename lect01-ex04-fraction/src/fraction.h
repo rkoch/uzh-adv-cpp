@@ -8,8 +8,6 @@
 #ifndef FRACTION_H_
 #define FRACTION_H_
 
-#include <exception>
-
 class fraction {
 
 private:
@@ -35,6 +33,5 @@ public:
 	fraction operator/(fraction &pDivisor);
 
 };
-
 
 #endif /* FRACTION_H_ */
