@@ -1,0 +1,35 @@
+# Ignores for actual project
+bin/
+out/
+Debug/
+Release/
+
+*.xcodeproj
+/.metadata/
+orig-src/
+
+*.tar.gz
+
+### Default ignores for C/C++ ###
+*.o
+*.slo
+*.lo
+*.lib
+*.dll
+*.so
+*.exe
+*.out
+*.lai
+*.la
+*.a
+
+### Default ignores for OS X ###
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+### Default ignores for Windows ###
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
