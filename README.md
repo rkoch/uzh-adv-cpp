@@ -9,8 +9,10 @@ Repo Structure
 --------------
 
 * Each exercise of the assignments will have their own subfolder in the format of
+
   ```
   lect%02d-ex%02d-%s
+
   where the replacements are:
   - Lecture number (%02d)
   - Exercise number within assignment (%02d)
