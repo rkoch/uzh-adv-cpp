@@ -36,6 +36,7 @@ int main(int pArgc, const char* pArgv[]) {
 	ifstream dfs(pArgv[1]);
 	if (!dfs) {
 		printFileNotFound(pArgv[1]);
+		exit(EXIT_FAILURE);
 	}
 	while (dfs.good()) {
 		string ent;
@@ -48,6 +49,7 @@ int main(int pArgc, const char* pArgv[]) {
 	ifstream tfs(pArgv[2]);
 	if (!tfs) {
 		printFileNotFound(pArgv[2]);
+		exit(EXIT_FAILURE);
 	}
 	while (tfs.good()) {
 		string word;
