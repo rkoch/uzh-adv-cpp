@@ -1,0 +1,1 @@
+correctly spelled words are stored in this dictionary file 
