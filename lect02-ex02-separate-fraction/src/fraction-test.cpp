@@ -1,7 +1,7 @@
 /*
  * main.cpp
  *
- *  Created on: 25.09.2013
+ *  Created on: 30.10.2013
  *      Author: rko
  */
 
@@ -13,6 +13,8 @@
 using std::exception;
 using std::cout;
 using std::endl;
+
+using fractions::fraction;
 
 int main(int pArgc, const char* pArgv[]) {
 
@@ -32,7 +34,7 @@ int main(int pArgc, const char* pArgv[]) {
 
 	// Test 2: Setting the denominator to 0 should throw an error
 	cout << "Test 2: ";
-	fraction f (1, 2);
+	fraction f(1, 2);
 	try {
 		f.setDenominator(0);
 		cout << "FAILED  (no exception thrown)";
@@ -42,10 +44,10 @@ int main(int pArgc, const char* pArgv[]) {
 	cout << endl;
 
 	// instantiate some fractions
-	fraction f1_2 (1, 2);
-	fraction f1_4 (1, 4);
-	fraction fn1_4 (-1, 4);
-	fraction f1_n8 (1, -8);
+	fraction f1_2(1, 2);
+	fraction f1_4(1, 4);
+	fraction fn1_4(-1, 4);
+	fraction f1_n8(1, -8);
 
 	// Test 3: Adding 1/2 + 1/4 should result in 3/4
 	cout << "Test 3: ";
@@ -120,5 +122,4 @@ int main(int pArgc, const char* pArgv[]) {
 	return 0;
 
 }
-
 
