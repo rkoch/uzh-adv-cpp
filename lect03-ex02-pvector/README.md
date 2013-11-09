@@ -17,5 +17,6 @@ Known issues
 Change history
 --------------
 
+* Added several new methods which are used by pRPN (exercise 3.3) /rko, 2013-11-09
 * Initial commit /rko, 2013-10-31
 

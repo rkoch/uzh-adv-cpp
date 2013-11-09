@@ -49,6 +49,38 @@ int pvector<T>::size() {
 }
 
 template<typename T>
+bool pvector<T>::empty() {
+	return vector.empty();
+}
+
+template<typename T>
 T pvector<T>::at(int idx) {
 	return vector.at(idx);
+}
+
+template<typename T>
+T pvector<T>::back() {
+	return vector.back();
+}
+
+// Iterators
+
+template<typename T>
+typename pvector<T>::iterator pvector<T>::begin() {
+	return vector.begin();
+}
+
+template<typename T>
+typename pvector<T>::iterator pvector<T>::end() {
+	return vector.end();
+}
+
+template<typename T>
+typename pvector<T>::const_iterator pvector<T>::begin() const {
+	return vector.begin();
+}
+
+template<typename T>
+typename pvector<T>::const_iterator pvector<T>::end() const {
+	return vector.end();
 }
