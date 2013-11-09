@@ -8,6 +8,8 @@
 #ifndef FRACTION_H_
 #define FRACTION_H_
 
+#include <iostream>
+
 class fraction {
 
 private:
@@ -19,7 +21,7 @@ private:
 	void validateDenominator(int pDenom);
 
 public:
-	fraction(int pCounter=0, int pDenom=1);
+	fraction(int pCounter = 0, int pDenom = 1);
 
 	int getCounter();
 	void setCounter(int pCounter);
@@ -31,6 +33,12 @@ public:
 	fraction operator-(fraction &pSubtrahend);
 	fraction operator*(fraction &pMultiplicator);
 	fraction operator/(fraction &pDivisor);
+
+	bool operator==(int num);
+	bool operator!=(int num);
+
+	friend std::istream& operator>>(std::istream& is, fraction &fraction);
+	friend std::ostream& operator<<(std::ostream& os, const fraction &fraction);
 
 };
 

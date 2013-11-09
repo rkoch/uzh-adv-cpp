@@ -23,5 +23,6 @@ Test 9: SUCCESS (result was 3/-8)
 Change history
 --------------
 
+* Extended with new methods for exercise 3.4 (template-based pRPN) /rko, 2013-11-09
 * Initial commit /rko, 2013-09-27
 

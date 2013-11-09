@@ -9,11 +9,10 @@
 
 // Constructor
 fraction::fraction(int pCounter, int pDenom)
-	: counter(pCounter) {
+		: counter(pCounter) {
 	validateDenominator(pDenom);
 	denominator = pDenom;
 }
-
 
 int fraction::getCounter() {
 	return counter;
@@ -31,7 +30,6 @@ void fraction::setDenominator(int pDenominator) {
 	validateDenominator(pDenominator);
 	denominator = pDenominator;
 }
-
 
 fraction fraction::operator +(fraction &pSummand) {
 	fraction res;
@@ -73,6 +71,33 @@ fraction fraction::operator /(fraction &pDivisor) {
 	return res;
 }
 
+bool fraction::operator ==(int num) {
+	if (denominator != 1) {
+		// if denominator is not equals one they cannot be the same as
+		// the fraction will always be reduced
+		return false;
+	}
+	return counter == num;
+}
+
+bool fraction::operator !=(int num) {
+	return !operator==(num);
+}
+
+std::istream& operator>>(std::istream& is, fraction &fraction) {
+	char separator;
+	is >> fraction.counter;
+	// This is just to remove the '/' separator
+	is >> separator;
+	is >> fraction.denominator;
+
+	return is;
+}
+
+std::ostream& operator<<(std::ostream& os, const fraction &fraction) {
+	os << fraction.counter << "/" << fraction.denominator;
+	return os;
+}
 
 // private api
 
@@ -87,21 +112,21 @@ int fraction::bcd(int a, int b) {
 }
 
 void fraction::reduce() {
-	 // bcd only makes sense for positive numbers
-	 int i = counter;
-	 if (i < 0) {
-		 i *= -1;
-	 }
-	 int j = denominator;
-	 if (j < 0) {
-		 j *= -1;
-	 }
+	// bcd only makes sense for positive numbers
+	int i = counter;
+	if (i < 0) {
+		i *= -1;
+	}
+	int j = denominator;
+	if (j < 0) {
+		j *= -1;
+	}
 
-	 int calc_bcd = bcd(i, j);
+	int calc_bcd = bcd(i, j);
 
-	 // actually reduce the fraction
-	 counter /= calc_bcd;
-	 denominator /= calc_bcd;
+	// actually reduce the fraction
+	counter /= calc_bcd;
+	denominator /= calc_bcd;
 }
 
 void fraction::validateDenominator(int pDenom) {
