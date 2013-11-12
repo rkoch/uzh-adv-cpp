@@ -11,16 +11,10 @@
 #include <iostream>
 #include <vector>
 
+#include "persister.h"
+
 using std::string;
 using std::vector;
-
-// traits
-
-template<typename T>
-struct persister;
-
-template<>
-struct persister<string> ;
 
 // pvector class
 

@@ -12,32 +12,6 @@ using std::ifstream;
 using std::ofstream;
 using std::string;
 
-// trait implementation (implementation here because of: http://stackoverflow.com/questions/2578387/where-to-declare-structures-etc)
-template<typename T>
-struct persister {
-	static void read(ifstream &in, T &element) {
-		in >> element;
-	}
-
-	static void write(ofstream &out, const T &element) {
-		out << element;
-	}
-};
-
-template<>
-struct persister<string> {
-	static void read(ifstream &in, string &element) {
-		string res;
-		std::getline(in, element);
-	}
-
-	static void write(ofstream &out, const string &element) {
-		out << element;
-	}
-};
-
-// pvector class
-
 template<typename T, typename P>
 pvector<T, P>::pvector(string fname)
 		: filename(fname), vector() {
