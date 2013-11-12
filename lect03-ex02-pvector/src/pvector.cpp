@@ -15,7 +15,7 @@ pvector<T>::pvector(string fname)
 	T inp;
 	// Problem: >> is formatted input which is determined by whitespace,
 	// so strings which are longer than one word are separated
-	// Solution: use getline instead of >>
+	// Possible solution: use std::getline(ifs, inp) instead of >> -> This does not work with int/float
 	while (ifs >> inp) {
 		vector.push_back(inp);
 	}
