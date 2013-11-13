@@ -20,29 +20,35 @@ int playfield::stoneat(int x, int y) const {
 }
 
 void playfield::draw() {
-	cout << "|";
+	cout << "| ";
 	for (int i = 0; i < playfield::width; i++) {
-		cout << "-";
+		cout << "- ";
 	}
 	cout << "|" << "\n";
 
 	for (int y = 0; y < playfield::height; y++) {
 		// each row
-		cout << "|";
+		cout << "| ";
 		for (int x = 0; x < playfield::width; x++) {
 			// each col
 			if (rep[x][y] == 0) {
-				cout << " ";
+				cout << "  ";
 			} else {
-				cout << rep[x][y];
+				cout << rep[x][y] << " ";
 			}
 		}
 		cout << "|" << "\n";
 	}
 
-	cout << "|";
+	cout << "| ";
 	for (int i = 0; i < playfield::width; i++) {
-		cout << "-";
+		cout << "- ";
+	}
+	cout << "|" << "\n";
+
+	cout << "| ";
+	for (int i = 0; i < playfield::width; i++) {
+		cout << i << " ";
 	}
 	cout << "|" << endl;          // endline + flush
 }
