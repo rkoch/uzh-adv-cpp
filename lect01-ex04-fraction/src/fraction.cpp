@@ -36,7 +36,7 @@ fraction fraction::operator +(fraction &pSummand) {
 
 	res.counter = (counter * pSummand.denominator) + (pSummand.counter * denominator);
 	res.denominator = denominator * pSummand.denominator;
-	res.reduce(); // normalize the resulting fraction
+	res.reduce();          // normalize the resulting fraction
 
 	return res;
 }
@@ -46,7 +46,7 @@ fraction fraction::operator -(fraction &pSubtrahend) {
 
 	res.counter = (counter * pSubtrahend.denominator) - (pSubtrahend.counter * denominator);
 	res.denominator = denominator * pSubtrahend.denominator;
-	res.reduce(); // normalize the resulting fraction
+	res.reduce();          // normalize the resulting fraction
 
 	return res;
 }
@@ -56,7 +56,7 @@ fraction fraction::operator *(fraction &pMultiplicator) {
 
 	res.counter = counter * pMultiplicator.counter;
 	res.denominator = denominator * pMultiplicator.denominator;
-	res.reduce(); // normalize the resulting fraction
+	res.reduce();          // normalize the resulting fraction
 
 	return res;
 }
@@ -66,7 +66,7 @@ fraction fraction::operator /(fraction &pDivisor) {
 
 	res.counter = counter * pDivisor.denominator;
 	res.denominator = denominator * pDivisor.counter;
-	res.reduce(); // normalize the resulting fraction
+	res.reduce();          // normalize the resulting fraction
 
 	return res;
 }
@@ -82,6 +82,13 @@ bool fraction::operator ==(int num) {
 
 bool fraction::operator !=(int num) {
 	return !operator==(num);
+}
+
+bool fraction::operator <(const fraction &comp) const {
+	int l = this->counter * comp.denominator;
+	int r = comp.counter * this->denominator;
+
+	return l < r;
 }
 
 std::istream& operator>>(std::istream& is, fraction &fraction) {
