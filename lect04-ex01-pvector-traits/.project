@@ -3,6 +3,7 @@
 	<name>lect04-ex01-pvector-traits</name>
 	<comment></comment>
 	<projects>
+		<project>lect01-ex04-fraction</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

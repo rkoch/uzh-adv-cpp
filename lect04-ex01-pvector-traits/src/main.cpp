@@ -10,6 +10,7 @@
 // needed to compile the pvector for each used datatype
 #include "pvector.cpp"
 #include "pset.cpp"
+#include "fraction.cpp"
 
 using std::string;
 using std::cout;
@@ -58,6 +59,12 @@ int main(int pArgc, char** pArgv) {
 	pvector<string> string_vec("data/string-data.txt");
 	print(string_vec);
 	string_vec.push_back("Another Test");
+
+	// Testing pvector with fraction
+	cout << "\n" << "--- pvector fraction test -----" << endl;
+	pvector<fraction> fraction_vec("data/fraction-data.txt");
+	print(fraction_vec);
+	fraction_vec.push_back(fraction(3,2));
 
 	// Testing pset with int values
 	cout << "--- pset int test ----------" << endl;
