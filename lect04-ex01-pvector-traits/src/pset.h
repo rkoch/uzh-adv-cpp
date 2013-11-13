@@ -27,6 +27,7 @@ public:
 	pset(string fname);
 	~pset();
 
+	iterator find(const T &element);
 	void insert(const T &element);
 	void erase(iterator position);
 	int size();

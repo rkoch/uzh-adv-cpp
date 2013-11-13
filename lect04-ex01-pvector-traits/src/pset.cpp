@@ -25,6 +25,11 @@ pset<T, P>::~pset() {
 }
 
 template<typename T, typename P>
+typename pset<T, P>::iterator pset<T, P>::find(const T &element) {
+	return set.find(element);
+}
+
+template<typename T, typename P>
 void pset<T, P>::insert(const T &element) {
 	set.insert(element);
 }
