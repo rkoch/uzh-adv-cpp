@@ -1,0 +1,44 @@
+Exercise 2.1
+------------
+
+char ch;
+  Source file, looks to me more like a local variable declaration (because of the naming)
+  Also possible in the header file obviously
+  
+string s;
+  Source file, looks to me more like a local variable declaration (because of the naming)
+  Also possible in the header file obviously
+
+extern int error_number;
+  Header file, external declaration
+
+static double sq(double);
+  Header file, function declaration
+
+int count = 1;
+  Source file, looks to me more like a local variable definition
+  Also possible in the header file obviously
+
+const double pi = 3.5;
+  Header file, constant definition
+
+struct fraction { int c; int d; }
+  Source file, Struct definition
+
+struct user;
+  Header file, Struct declaration
+
+char* name = "It's me";
+  Source file, variable definition (contained in methods/functions)
+
+char* prog[] = { "echo", "hello", "world!", NULL };
+  Source file, variable definition (contained in methods/functions)
+
+extern "C" void c_swap(int* a, int* b);
+  Header file, external declaration
+
+double sqrt(double);
+  Header file, function declaration
+
+void swap(int &a, int &b) { int c = a; a = b; b = c; }
+  Source file, function definition
