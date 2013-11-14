@@ -53,10 +53,11 @@ void rpn<T>::multiply() {
 
 template<typename T>
 void rpn<T>::organize_min() {
-	current_min = *stack.begin();
-	std::for_each(stack.begin(), stack.end(), check_min);
-	// TODO remove it
-	stack.push_back(current_min);
+	T smallestElement = stack.front();
+
+  	std::for_each(stack.begin(), stack.end(), [&](T c){if (c < smallestElement) smallestElement = c;});
+
+  	stack.push_back(smallestElement);
 }
 
 template<typename T>
