@@ -34,6 +34,7 @@ public:
 	int size();
 	bool empty();
 	T at(int idx);
+	T front();
 	T back();
 
 	iterator begin();

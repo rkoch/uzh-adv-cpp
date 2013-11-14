@@ -50,6 +50,11 @@ T pvector<T, P>::at(int idx) {
 }
 
 template<typename T, typename P>
+T pvector<T, P>::front() {
+	return vector.front();
+}
+
+template<typename T, typename P>
 T pvector<T, P>::back() {
 	return vector.back();
 }
