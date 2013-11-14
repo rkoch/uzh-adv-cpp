@@ -16,6 +16,55 @@ int computer<F>::play(const F &field) {
 	// That was playfield::player1 but the linker could not find those symbols? Strange C++!!
 	int enemy = (player_number == 1 ? 2 : 1);
 
+	// Check if computer could win
+	for (int x = 0; x < playfield::width; x++) {
+		for (int y = 0; y < playfield::height; y++) {
+
+			// Check  horizontal
+			if ((x + 2 < playfield::width) && (field.stoneat(x, y) == player_number) && (field.stoneat(x + 1, y) == player_number) && (field.stoneat(x + 2, y) == player_number)) {
+				if ((x + 3 < playfield::width) && (field.stoneat(x + 3, y) == 0) && ((y == playfield::height - 1) || (field.stoneat(x + 3, y - 1) != 0))) {
+					return x + 3;
+				}
+
+				if ((x > 0) && (field.stoneat(x - 1, y) == 0) && ((y == playfield::height - 1) || (field.stoneat(x - 1, y - 1) != 0))) {
+					return x - 1;
+				}
+			}
+
+			// Check vertical
+			if ((y + 2 < playfield::height) && (field.stoneat(x, y) == player_number) && (field.stoneat(x, y + 1) == player_number) && (field.stoneat(x, y + 2) == player_number)) {
+				if ((y > 0) && (field.stoneat(x, y - 1) == 0)) {
+					return x;
+				}
+			}
+
+			// Check diagonal (top-left to bottom-right)
+			if ((x + 2 < playfield::width) && (y + 2 < playfield::height) && (field.stoneat(x, y) == player_number) && (field.stoneat(x + 1, y + 1) == player_number)
+					&& (field.stoneat(x + 2, y + 2) == player_number)) {
+				if ((x + 3 < playfield::width) && (y + 3 < playfield::width) && (field.stoneat(x + 3, y + 3) == 0)
+						&& ((y + 3 == playfield::height - 1) || (field.stoneat(x + 3, y + 4) != 0))) {
+					return x + 3;
+				}
+
+				if ((x > 0) && (y > 0) && (field.stoneat(x - 1, y - 1) == 0) && (field.stoneat(x - 1, y) != 0)) {
+					return x - 1;
+				}
+			}
+
+			// Check diagonal (bottom-left to top-right)
+			if ((x + 2 < playfield::width) && (y - 2 >= 0) && (field.stoneat(x, y) == player_number) && (field.stoneat(x + 1, y - 1) == player_number)
+					&& (field.stoneat(x + 2, y - 2) == player_number)) {
+				if ((x + 3 < playfield::width) && (y - 3 >= 0) && (field.stoneat(x + 3, y - 3) == 0) && (field.stoneat(x + 3, y - 2) != 0)) {
+					return x + 3;
+				}
+
+				if ((x > 0) && (y < playfield::height - 1) && (field.stoneat(x - 1, y + 1) == 0) && ((y + 2 == playfield::height) || (field.stoneat(x - 1, y + 2) != 0))) {
+					return x - 1;
+				}
+			}
+		}
+	}
+
 	// Check if enemy has 2 or more stones next to each other -> haunt him
 	for (int x = 0; x < playfield::width; x++) {
 		for (int y = 0; y < playfield::height; y++) {
@@ -56,25 +105,13 @@ int computer<F>::play(const F &field) {
 					return x + 2;
 				}
 
-				if ((x > 0) && (y < playfield::height - 1) && (field.stoneat(x - 1, y - 1) == 0) && ((y - 2 < playfield::height) || (field.stoneat(x - 1, y - 2) != 0))) {
+				if ((x > 0) && (y < playfield::height - 1) && (field.stoneat(x - 1, y + 1) == 0) && ((y + 2 == playfield::height) || (field.stoneat(x - 1, y + 2) != 0))) {
 					return x - 1;
 				}
 			}
 		}
 	}
 
-	// Otherwise place stone where computer could win
-	for (int x = 0; x < playfield::width; x++) {
-		for (int y = 0; y < playfield::height; y++) {
-
-			// Check  horizontal
-
-			// Check vertical
-
-			// Check diagonal
-		}
-	}
-
-	// Default return
+	// Default behavior: return a random stone
 	return rand() % playfield::width;
 }
