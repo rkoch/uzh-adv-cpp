@@ -27,6 +27,11 @@ public:
 		return stream;
 	}
 
+	static ostream& float_prec(ostream &stream) {
+		stream.precision(10);
+		return stream;
+	}
+
 };
 
 #endif
