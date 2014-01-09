@@ -30,8 +30,8 @@ public:
 	}
 
 	range_iterator& operator++() {
-		if (cur_pos == end) {
-			throw std::out_of_range("Iterator overflow");
+		if (cur_pos == (end - 1)) { // end - 1 because end is AFTER the last element; mathematically: [begin, end)
+			throw std::range_error("Iterator overflow");
 		}
 		cur_pos++;
 
@@ -46,7 +46,7 @@ public:
 
 	range_iterator& operator--() {
 		if (cur_pos == begin) {
-			throw std::out_of_range("Iterator underflow");
+			throw std::range_error("Iterator underflow");
 		}
 		cur_pos--;
 
@@ -60,6 +60,9 @@ public:
 	}
 
 	value_type operator*() {
+		if (cur_pos == end) {
+			throw std::range_error("Out of bounds");
+		}
 		return *cur_pos;
 	}
 

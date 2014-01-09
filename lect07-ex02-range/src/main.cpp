@@ -23,18 +23,18 @@ int main(int argc, const char **argv) {
 	range_iterator<std::vector<int>::iterator> itr(vec.begin(), vec.end());
 
 	try {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 5; i++) {
 			std::cout << *itr << std::endl;
-			itr++;
+			++itr;
 		}
 	} catch (const std::exception& ex) {
 		std::cout << "Exception: " << ex.what() << std::endl;
 	}
 
 	try {
-		for (int i = 6; i > 0; i--) {
+		for (int i = 0; i < 5; i++) {
 			std::cout << *itr << std::endl;
-			itr--;
+			--itr;
 		}
 	} catch (const std::exception& ex) {
 		std::cout << "Exception: " << ex.what() << std::endl;
@@ -43,18 +43,18 @@ int main(int argc, const char **argv) {
 	range_iterator<std::vector<double>::iterator> itr2(vec2.begin(), vec2.end());
 
 	try {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 5; i++) {
 			std::cout << *itr2 << std::endl;
-			itr2++;
+			++itr2;
 		}
 	} catch (const std::exception& ex) {
 		std::cout << "Exception: " << ex.what() << std::endl;
 	}
 
 	try {
-		for (int i = 6; i > 0; i--) {
+		for (int i = 0; i < 5; i++) {
 			std::cout << *itr2 << std::endl;
-			itr2--;
+			--itr2;
 		}
 	} catch (const std::exception& ex) {
 		std::cout << "Exception: " << ex.what() << std::endl;
